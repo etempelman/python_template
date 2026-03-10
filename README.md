@@ -19,19 +19,19 @@ Follow these steps to set up the project for development.
 
 ## 1. Clone the repository
 ```bash
-$ git clone https://github.com/etempelman/python_template.git new_project_name
-$ cd new_project_name
+$ git clone https://github.com/etempelman/python_template.git project_name
+$ cd project_name
 ```
-Execute script to replace project_name with your new_project_name
+Execute script to set your project_name
 ```bash
-$ python3 set_project_info.py project_name new_project_name
+$ python3 set_project_info.py project_name
 ```
 Replace placeholder names:
 - Update pyproject.toml → set description, authors, URLs
 - Adjust README.md
 Create the repo
 ```bash
-$ gh repo create new_project_name --public --source=. --push
+$ gh repo create project_name --public --source=. --push
 ```
 
 ## 2. Create a virtual environment
