@@ -17,7 +17,7 @@ coverage:
     coverage html
     @echo "Open htmlcov/index.html in your browser for detailed coverage report."
 
-# 🧹 Linting & Formatting
+# 🧹 Linting & Formatting & check
 lint:
     ruff check .
 
@@ -26,6 +26,15 @@ lint-fix:
 
 format:
     ruff format .
+
+typecheck:
+    mypy .
+
+check:
+    just lint
+    just test
+    # optional:
+    just typecheck
 
 # 🏗 Build & Publish
 build:
