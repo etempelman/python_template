@@ -18,14 +18,14 @@ coverage:
     @echo "Open htmlcov/index.html in your browser for detailed coverage report."
 
 # 🧹 Linting & Formatting & check
-lint:
-    ruff check .
+lint path=".":
+    ruff check {{path}}
 
-lint-fix:
-    ruff check . --fix
+lint-fix path=".":
+    ruff check {{path}} --fix
 
-format:
-    ruff format .
+format path=".":
+    ruff format {{path}}
 
 typecheck:
     mypy .
