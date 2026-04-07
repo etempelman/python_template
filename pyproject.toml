@@ -50,6 +50,13 @@ packages = ["src/project_name"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+exclude = [
+    "data",
+    "docs",
+    "build",
+    "logs",
+    ".venv",
+]
 
 [tool.ruff.lint]
 select = [
