@@ -5,6 +5,7 @@ default:
 # 🐍 Environment setup
 install:
     pip install -e .[dev]
+    pre-commit install
 
 # 🧪 Testing
 test:
