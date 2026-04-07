@@ -18,15 +18,13 @@ coverage:
 
 # 🧹 Linting & Formatting
 lint:
-    ruff check src tests
+    ruff check .
 
 lint-fix:
-    ruff check --fix src tests
-    black src tests
+    ruff check . --fix
 
 format:
-    black src tests
-    isort src tests
+    ruff format .
 
 # 🏗 Build & Publish
 build:
@@ -34,6 +32,13 @@ build:
 
 publish:
     hatch publish
+
+# Pre-commit
+precommit-install:
+    pre-commit install
+
+precommit-run:
+    pre-commit run --all-files
 
 # 🧼 Clean up
 clean:
