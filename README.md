@@ -5,7 +5,11 @@ This repository provides a flexible and opinionated Python project template desi
 
 ## Features
 - **PEP 621** compliant `pyproject.toml` with [Hatchling](https://hatch.pypa.io/latest/)  
-- Centralized tool configs (`black`, `ruff`, `isort`, `mypy`, `pytest`, `coverage`)  
+- Fast linting & formatting via Ruff
+- Pre-commit hooks for enforced code quality
+- Pytest for testing
+- Coverage reporting
+- Hatch for packaging
 - [Just](https://github.com/casey/just) for developer automation (like `make`, but simpler)  
 - `src/` layout for clean package structure  
 - `.env.example` for environment variable management  
@@ -73,8 +77,9 @@ just install    # install project + dev dependencies
 just test       # run tests with pytest
 just coverage   # run tests with coverage report
 just lint       # check code style with ruff
-just lint-fix   # auto-fix linting issues (ruff + black)
-just format     # format code (black + isort)
+just lint-fix   # auto-fix linting issues (ruff)
+just format     # format code (ruff)
+just typecheck  # run static type checking (mypy)
 just build      # build wheel & sdist via hatch
 just publish    # publish to PyPI (requires credentials)
 just clean      # remove build/test artifacts
@@ -95,6 +100,7 @@ python_template/
 ├── LICENSE
 ├── README.md
 ├── pyproject.toml
+└── .pre-commit-config.yaml
 ```
 - src/project_name/ → main package placeholder
 - tests/ → test suite
@@ -106,3 +112,4 @@ python_template/
 - LICENSE → MIT license
 - README.md → project documentation
 - pyproject.toml → project metadata and build configuration
+- .pre-commit-config.yaml → configuration file for pre-commit
