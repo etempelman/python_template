@@ -29,10 +29,10 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest>=7.0",
-  "ruff>=0.0.290",
-  "black>=23.0",
+  "ruff>=0.4.0",
   "mypy>=1.0",
   "coverage[toml]>=7.0",
+  "pre-commit>=3.0",
 ]
 
 [project.urls]
@@ -47,20 +47,26 @@ path = "src/project_name/__init__.py"
 [tool.hatch.build.targets.wheel]
 packages = ["src/project_name"]
 
-[tool.black]
-line-length = 88
-target-version = ["py310", "py311"]
-
-[tool.isort]
-profile = "black"
-
 [tool.ruff]
-line-length = 88
-select = ["E", "F", "B"]
-target-version = "py310"
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",  # style
+    "F",  # errors
+    "I",  # imports
+    "B",  # bugbear
+    "UP", # modern python
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 warn_unused_configs = true
 strict = true
 
@@ -78,5 +84,5 @@ skip_covered = true
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--verbose --capture=tee-sys"
+addopts = "-ra -q --verbose --capture=tee-sys"
 testpaths = ["tests"]
